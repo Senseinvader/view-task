@@ -1,12 +1,12 @@
 <template>
   <div class="login-container">
     <h2>Yo!</h2>
-    <form class="input-form">
+    <form class="input-form" v-on:submit="(e) => handleLogIn(e)">
       <input type="text" v-model="login">
       <input type="text" v-model="password">
       <button class="submit-button">SUBMIT</button>
     </form>
-    <div class="alert">{{alert}}</div>
+    <div class="alert">{{error}}</div>
   </div>
 </template>
 
@@ -21,9 +21,15 @@ export default {
     };
   },
   computed: {
-    // error() {
-    //   return this.$store.error;
-    // },
+    error() {
+      return this.$store.state.auth.error;
+    },
+  },
+  methods: {
+    handleLogIn(e) {
+      e.preventDefault();
+      this.$store.dispatch('auth/userSignIn', { login: this.login, password: this.password });
+    },
   },
 };
 </script>
