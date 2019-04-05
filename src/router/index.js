@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld';
 import News from '@/components/News';
 import Login from '@/components/Login';
 import Profile from '@/components/Profile';
+import { store } from '@/store/Store';
 
 Vue.use(Router);
 
@@ -24,6 +25,14 @@ export default new Router({
       path: '/profile',
       name: 'Profile',
       component: Profile,
+      meta: { requiresAuth: true },
+      beforeEnter: (to, from, next) => {
+        if (!store.getters['auth/isAuthenticated']) {
+          next('/login');
+        } else {
+          next();
+        }
+      },
     },
     {
       path: '/login',

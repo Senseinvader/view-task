@@ -78,7 +78,7 @@ export default {
     padding: 2vw;
     cursor: pointer;
     flex-shrink: 1;
-    width: 5vw;
+    min-width: 5vw;
   }
   .button span {
     color: white;
