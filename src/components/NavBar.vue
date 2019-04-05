@@ -1,25 +1,25 @@
 <template>
   <div class='navbar-container'>
-    <div class="logo">
-
-    </div>
     <div class="navigation-container">
-      <ul class="menu-list">
-        <li
-          v-for="item in menuItems"
-          :key="item.name"
-        >
-          <div class="button">
-            <router-link :to="item.link"><span>{{item.name}}</span></router-link>
-          </div>
-        </li>
-      </ul>
-      <div class="button">
-        <router-link to="/login">
-          <span v-on:click="handleLogOut">
-            {{buttonContent}}
-          </span>
-        </router-link>
+      <div class="logo">{{logo}}</div>
+      <div class="menu">
+        <ul class="menu-list">
+          <li
+            v-for="item in menuItems"
+            :key="item.name"
+          >
+            <div class="button">
+              <router-link :to="item.link"><span>{{item.name}}</span></router-link>
+            </div>
+          </li>
+        </ul>
+        <div class="button">
+          <router-link to="/login">
+            <span v-on:click="handleLogOut">
+              {{buttonContent}}
+            </span>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -59,7 +59,7 @@ export default {
   .navigation-container {
     background-color: #43a047;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
   }
   .menu-list {
     list-style-type: none;
@@ -70,10 +70,15 @@ export default {
     padding: 0;
     flex-shrink: 2;
   }
+  .menu {
+    display: flex;
+    flex-direction: row;
+  }
   .button {
     padding: 2vw;
     cursor: pointer;
     flex-shrink: 1;
+    width: 5vw;
   }
   .button span {
     color: white;
@@ -82,6 +87,14 @@ export default {
   .button:hover {
     /* text-decoration-line: underline; */
     background-color: #358f3a;
+  }
+  .logo {
+    align-self: center;
+    color: aliceblue;
+    text-transform: capitalize;
+    font-size: 1.5em;
+    padding-left: 2vw;
+    font-weight: bolder;
   }
 </style>
 
