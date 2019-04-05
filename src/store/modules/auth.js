@@ -38,6 +38,11 @@ const actions = {
     router.push({ name: 'HelloWorld' });
     window.localStorage.setItem('loggedIn', 'false');
   },
+  checkIsSignedIn() {
+    if (window.localStorage.getItem('loggedIn')) {
+      state.loggedIn = true;
+    }
+  },
 };
 
 export default {
