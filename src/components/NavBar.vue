@@ -14,15 +14,24 @@
           </div>
         </li>
       </ul>
-      <!-- TODO add switching between login/logout depending on user loggedIn true/false!!! -->
-      <div class="button"><router-link to="/login"><span>login</span></router-link></div>
+      <div class="button">
+        <router-link to="/login">
+          <span v-on:click="handleLogOut">
+            {{buttonContent}}
+          </span>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'NavBar',
+  created() {
+    this.$store.dispatch('auth/checkIsSignedIn');
+  },
   data() {
     return {
       logo: 'Vue',
@@ -32,6 +41,16 @@ export default {
         { name: 'profile', link: '/profile' },
       ],
     };
+  },
+  computed: {
+    buttonContent() {
+      return this.$store.getters['auth/isAuthenticated'] ? 'logout' : 'login';
+    },
+  },
+  methods: {
+    handleLogOut() {
+      this.$store.dispatch('auth/userSignOut');
+    },
   },
 };
 </script>
