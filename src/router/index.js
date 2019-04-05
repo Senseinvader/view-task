@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
 import News from '@/components/News';
+import Login from '@/components/Login';
+import Profile from '@/components/Profile';
 
 Vue.use(Router);
 
@@ -17,6 +19,16 @@ export default new Router({
       path: '/news',
       name: 'News',
       component: News,
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile,
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
     },
   ],
 });
