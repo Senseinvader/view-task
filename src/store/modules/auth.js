@@ -29,7 +29,7 @@ const actions = {
       router.push({ name: 'Profile' });
       window.localStorage.setItem('loggedIn', 'true');
     } else {
-      commit('setError', 'user name or password are incorrect');
+      commit('setError', 'User name or password is incorrect');
     }
   },
   userSignOut({ commit }) {
