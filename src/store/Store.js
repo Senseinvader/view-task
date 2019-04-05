@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import auth from '@/store/modules/auth';
+import data from '@/store/modules/data';
 
 Vue.use(Vuex);
 
@@ -8,5 +9,6 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   modules: {
     auth,
+    data,
   },
 });
