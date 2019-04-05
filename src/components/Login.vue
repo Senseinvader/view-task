@@ -3,7 +3,7 @@
     <h2>Yo!</h2>
     <form class="input-form" v-on:submit="(e) => handleLogIn(e)">
       <input type="text" v-model="login">
-      <input type="text" v-model="password">
+      <input type="password" v-model="password">
       <button class="submit-button">SUBMIT</button>
     </form>
     <div class="alert">{{error}}</div>
