@@ -23,7 +23,7 @@ const getters = {
 
 const actions = {
   userSignIn({ commit }, payload) {
-    if (payload.login === 'Admin' && payload.password === '12345') {
+    if (payload.login === 'admin' && payload.password === '123') {
       commit('setIsLoggedIn', true);
       commit('setError', '');
       router.push({ name: 'Profile' });
@@ -33,9 +33,10 @@ const actions = {
     }
   },
   userSignOut({ commit }) {
-    commit('setUserLoggedIn', false);
+    commit('setIsLoggedIn', false);
     commit('setError', '');
     router.push({ name: 'HelloWorld' });
+    window.localStorage.setItem('loggedIn', 'false');
   },
 };
 
