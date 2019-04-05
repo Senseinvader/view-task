@@ -35,6 +35,10 @@ export default {
 </script>
 
 <style>
-
+  .alert {
+    display: inline-block;
+    margin-top: 1vw;
+    color: #f44336;
+  }
 </style>
 

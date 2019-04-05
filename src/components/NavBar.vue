@@ -86,7 +86,7 @@ export default {
   }
   .button:hover {
     /* text-decoration-line: underline; */
-    background-color: #358f3a;
+    background-color: #2e7d32;
   }
   .logo {
     align-self: center;
