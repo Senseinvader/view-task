@@ -29,9 +29,6 @@
 
 export default {
   name: 'NavBar',
-  created() {
-    this.$store.dispatch('auth/checkIsSignedIn');
-  },
   data() {
     return {
       logo: 'Vue',
@@ -44,7 +41,7 @@ export default {
   },
   computed: {
     buttonContent() {
-      return this.$store.getters['auth/isAuthenticated'] ? 'logout' : 'login';
+      return this.$store.getters['auth/isAuthenticated'] === false ? 'log in' : 'log out';
     },
   },
   methods: {

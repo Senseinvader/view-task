@@ -33,10 +33,11 @@ const actions = {
     }
   },
   userSignOut({ commit }) {
-    commit('setIsLoggedIn', false);
-    commit('setError', '');
-    router.push({ name: 'HelloWorld' });
-    window.localStorage.setItem('loggedIn', 'false');
+    if (getters.isAuthenticated) {
+      commit('setIsLoggedIn', false);
+      router.push({ name: 'HelloWorld' });
+      window.localStorage.setItem('loggedIn', 'false');
+    }
   },
   checkIsSignedIn() {
     if (window.localStorage.getItem('loggedIn')) {
